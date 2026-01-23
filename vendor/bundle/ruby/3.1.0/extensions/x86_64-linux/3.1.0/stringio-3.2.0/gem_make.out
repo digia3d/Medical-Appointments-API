@@ -1,0 +1,16 @@
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/stringio-3.2.0/ext/stringio
+/home/alex/.rbenv/versions/3.1.7/bin/ruby -I /home/alex/.rbenv/versions/3.1.7/lib/ruby/3.1.0 extconf.rb
+checking for rb_io_mode_t in ruby/io.h... no
+creating Makefile
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-h8siee sitelibdir\=./.gem.20260123-55090-h8siee clean
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-h8siee sitelibdir\=./.gem.20260123-55090-h8siee
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-h8siee sitelibdir\=./.gem.20260123-55090-h8siee install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20260123-55090-h8siee

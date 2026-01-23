@@ -1,0 +1,15 @@
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/cgi-0.5.1/ext/cgi/escape
+/home/alex/.rbenv/versions/3.1.7/bin/ruby -I /home/alex/.rbenv/versions/3.1.7/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-zprg3c sitelibdir\=./.gem.20260123-55090-zprg3c clean
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-zprg3c sitelibdir\=./.gem.20260123-55090-zprg3c
+compiling escape.c
+linking shared-object cgi/escape.so
+
+current directory: /home/alex/Desktop/Medical-Appointments-API/vendor/bundle/ruby/3.1.0/gems/cgi-0.5.1/ext/cgi/escape
+make DESTDIR\= sitearchdir\=./.gem.20260123-55090-zprg3c sitelibdir\=./.gem.20260123-55090-zprg3c install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20260123-55090-zprg3c/cgi
