@@ -37,6 +37,11 @@ Style/FrozenStringLiteralComment:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+  Exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'config/**/*.yml'
+  - 'bin/*'
 
 Style/Documentation:
   Enabled: false

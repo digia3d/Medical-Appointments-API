@@ -19,17 +19,12 @@ default: &default
   encoding: unicode
   host: localhost
   username: alex
-  password: 05062312
+  password: '05062312'
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: medical_appointments_api_development
-  pool: 5
-  username: alex
-  password: 05062312
-  host: 127.0.0.1
+  <<: *default
+  database: medical_appointments_api_dev
 
 
   # The specified database role being used to connect to postgres.
@@ -88,7 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: medical_appointments_api_production
-  username: alex
-  password: 05062312
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: 5
 
