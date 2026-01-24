@@ -13,7 +13,21 @@
 # To use a different locale, set it with `I18n.locale`:
 #
 #     I18n.locale = :es
-#
+en:
+  activerecord:
+    errors:
+      models:
+        appointment:
+          attributes:
+            description:
+              blank: "Description can't be blank"
+              too_short: "Description must be at least 3 characters"
+              too_long: "Description must be at most 150 characters"
+            date_of_appointment:
+              inclusion: "Date should be in the future"
+            time_of_appointment:
+              invalid: "Time format should be HH:MM"
+
 # This would use the information in config/locales/es.yml.
 #
 # The following keys must be escaped otherwise they will not be retrieved by
