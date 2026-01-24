@@ -1,7 +1,6 @@
 # .rubocop.yml
 plugins:
   - rubocop-rails
-  - rubocop-rspec
 
 AllCops:
   TargetRubyVersion: 3.1
@@ -13,9 +12,6 @@ AllCops:
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'log/**/*'
-
-RSpec:
-  Enabled: true
 
 Rails:
   Enabled: true
@@ -37,6 +33,11 @@ Style/FrozenStringLiteralComment:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+  Exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'config/**/*.yml'
+  - 'bin/*'
 
 Style/Documentation:
   Enabled: false

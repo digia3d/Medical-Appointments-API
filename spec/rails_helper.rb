@@ -24,6 +24,10 @@ require "rspec/rails"
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
+unless ENV["SKIP_TESTS"] == "true"
+  # ovo je originalna linija koja pravi problem
+  ActiveRecord::Migration.maintain_test_schema!
+end
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
