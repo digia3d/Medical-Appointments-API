@@ -8,29 +8,42 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'bin/*'
+    - 'config/**/*'
     - 'node_modules/**/*'
+    - 'Guardfile'
     - 'vendor/**/*'
     - 'tmp/**/*'
     - 'log/**/*'
+
+  DisplayCopNames: true
 
 Rails:
   Enabled: true
 
 Layout/LineLength:
-  Max: 120
+  Max: 250
+
+Metrics/ClassLength:
+  Max: 150
 
 Metrics/BlockLength:
+  IgnoredMethods: ['describe']
   Exclude:
     - 'spec/**/*'
+  Max: 70
 
 Metrics/MethodLength:
+  Include:
+    - "app/controllers/*"
+    - "app/models/*"
   Max: 20
   Exclude:
     - 'spec/**/*'
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-
+  EnforcedStyle: never
+Style/GuardClause:
+  Enabled: true
 Style/StringLiterals:
   EnforcedStyle: double_quotes
   Exclude:
@@ -38,7 +51,6 @@ Style/StringLiterals:
   - 'Gemfile.lock'
   - 'config/**/*.yml'
   - 'bin/*'
-
 Style/Documentation:
   Enabled: false
 
