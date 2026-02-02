@@ -24,6 +24,14 @@ module Api
         render json: doctor, status: :created
       end
 
+      def destroy
+        record = Doctor.find(params[:id])
+        record.destroy
+        head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "Doctor not found" }, status: :not_found
+      end
+
       private
 
       def doctor_params

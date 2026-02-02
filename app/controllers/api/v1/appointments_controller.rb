@@ -19,6 +19,14 @@ module Api
         render json: { errors: appointment.errors.full_messages }, status: :unprocessable_entity
       end
 
+      def destroy
+        record = Appointment.find(params[:id])
+        record.destroy
+        head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "Appointment not found" }, status: :not_found
+      end
+
       private
 
       def appointment_params

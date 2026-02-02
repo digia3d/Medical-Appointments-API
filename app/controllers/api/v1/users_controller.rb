@@ -23,6 +23,14 @@ module Api
         render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end
 
+      def destroy
+        record = User.find(params[:id])
+        record.destroy
+        head :no_content
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "User not found" }, status: :not_found
+      end
+
       private
 
       def user_params
