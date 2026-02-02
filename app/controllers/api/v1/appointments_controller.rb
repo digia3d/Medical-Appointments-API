@@ -21,8 +21,9 @@ module Api
       end
 
       def destroy
-        @appointment.destroy
-        render json: { message: "Appointment deleted successfully" }
+        appointment = Appointment.find(params[:id])
+        appointment.destroy
+        head :no_content
       end
 
       private
