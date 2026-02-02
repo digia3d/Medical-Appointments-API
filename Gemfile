@@ -38,10 +38,15 @@ gem "dotenv-rails", groups: %i[development test]
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  # {}gem "rspec-rails", "~> 6.0"
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 6.1'
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
   # {}gem "rubocop-rspec", require: false
