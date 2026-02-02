@@ -1,14 +1,15 @@
 module Api
   module V1
     class AppointmentsController < ApplicationController
+      before_action :set_appointment, only: %i[show destroy]
+
       def index
         appointments = Appointment.all
-        render json: appointments
+        render json: appointments.as_json(include: { user: { only: :name }, doctor: { only: :name } }, except: %i[created_at updated_at])
       end
 
       def show
-        appointment = Appointment.find(params[:id])
-        render json: appointment
+        render json: @appointment.as_json(include: { user: { only: :name }, doctor: { only: :name } })
       end
 
       def create
@@ -19,7 +20,17 @@ module Api
         render json: { errors: appointment.errors.full_messages }, status: :unprocessable_entity
       end
 
+      def destroy
+        @appointment.destroy
+        render json: { message: "Appointment deleted successfully" }
+      end
+
       private
+
+      def set_appointment
+        @appointment = Appointment.find_by(id: params[:id])
+        render json: { error: "Appointment not found" }, status: :not_found unless @appointment
+      end
 
       def appointment_params
         params.require(:appointment).permit(:user_id, :doctor_id, :scheduled_at, :status, :description)
