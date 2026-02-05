@@ -1,12 +1,12 @@
 class Appointment < ApplicationRecord
+  enum :status, { scheduled: 0, completed: 1, canceled: 2 }
+
   belongs_to :user
   belongs_to :doctor
 
   validates :description, presence: true, length: { in: 5..150 }
 
   validates :scheduled_at, presence: true
-
-  enum :status, { scheduled: "scheduled", completed: "completed", canceled: "canceled" }
 
   validate :scheduled_at_cannot_be_in_the_past
 
