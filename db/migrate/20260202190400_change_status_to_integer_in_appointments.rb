@@ -11,7 +11,7 @@ class ChangeStatusToIntegerInAppointments < ActiveRecord::Migration[7.0]
     SQL
 
     # Now change column type from string to integer
-    change_column :appointments, :status, :integer, using: "status::integer"
+    change_column :appointments, :status, :integer, using: 'status::integer'
   end
 
   def down

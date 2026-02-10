@@ -26,14 +26,14 @@ module Api
 
       def destroy
         @user.destroy
-        render json: { message: "User deleted successfully" }
+        render json: { message: 'User deleted successfully' }
       end
 
       private
 
       def set_user
         @user = User.find_by(id: params[:id])
-        render json: { error: "User not found" }, status: :not_found unless @user
+        render json: { error: 'User not found' }, status: :not_found unless @user
       end
 
       def user_params

@@ -30,7 +30,7 @@ module Api
 
       def set_appointment
         @appointment = Appointment.find_by(id: params[:id])
-        render json: { error: "Appointment not found" }, status: :not_found unless @appointment
+        render json: { error: 'Appointment not found' }, status: :not_found unless @appointment
       end
 
       def appointment_params

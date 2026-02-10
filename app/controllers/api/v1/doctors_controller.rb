@@ -24,14 +24,14 @@ module Api
 
       def destroy
         @doctor.destroy
-        render json: { message: "Doctor deleted successfully" }
+        render json: { message: 'Doctor deleted successfully' }
       end
 
       private
 
       def set_doctor
         @doctor = Doctor.find_by(id: params[:id])
-        render json: { error: "Doctor not found" }, status: :not_found unless @doctor
+        render json: { error: 'Doctor not found' }, status: :not_found unless @doctor
       end
 
       def doctor_params

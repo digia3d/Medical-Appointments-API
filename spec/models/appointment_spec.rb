@@ -1,12 +1,12 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Appointment, type: :model do
-  describe "associations" do
+  describe 'associations' do
     it { should belong_to(:user) }
     it { should belong_to(:doctor) }
   end
 
-  describe "validations" do
+  describe 'validations' do
     subject { FactoryBot.build(:appointment) } # koristi factory za Appointment
 
     it { should validate_presence_of(:description) }
@@ -16,7 +16,7 @@ RSpec.describe Appointment, type: :model do
     it { should_not allow_value(1.day.ago).for(:scheduled_at) }
   end
 
-  describe "enums" do
+  describe 'enums' do
     it {
       should define_enum_for(:status)
         .with_values(
