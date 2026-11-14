@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :appointment do
-    description { 'Pregled kod doktora' }
+    description { 'Regular checkup' }
     scheduled_at { 1.day.from_now }
     status { 'scheduled' }
 

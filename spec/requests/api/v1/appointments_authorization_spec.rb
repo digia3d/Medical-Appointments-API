@@ -35,7 +35,7 @@ RSpec.describe 'Appointments authorization', type: :request do
 
   describe 'GET /api/v1/appointments' do
     let!(:user) { create(:user) }
-    let!(:token) { jwt_token_for(user) }
+    let!(:token) { jwt_token_for_user(user) }
 
     context 'when a valid token is provided' do
       before do

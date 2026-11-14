@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Doctors API', type: :request do
+  let!(:user) { create(:user) }
+
   describe 'GET /api/v1/doctors' do
     let!(:doctors) { create_list(:doctor, 3) }
 
-    before { get '/api/v1/doctors' }
+    before { get '/api/v1/doctors', headers: auth_headers(user) }
 
     it 'returns a list of doctors' do
       expect(response).to have_http_status(:ok)
@@ -23,7 +25,7 @@ RSpec.describe 'Doctors API', type: :request do
 
     before do
       doctor
-      get "/api/v1/doctors/#{doctor.id}"
+      get "/api/v1/doctors/#{doctor.id}", headers: auth_headers(user)
     end
 
     it 'returns the doctor details' do
@@ -40,7 +42,7 @@ RSpec.describe 'Doctors API', type: :request do
   end
 
   describe 'GET /api/v1/doctors/:id when doctor does not exist' do
-    before { get '/api/v1/doctors/999999' }
+    before { get '/api/v1/doctors/999999', headers: auth_headers(user) }
 
     it 'returns a 404 not found' do
       expect(response).to have_http_status(:not_found)
@@ -55,7 +57,7 @@ RSpec.describe 'Doctors API', type: :request do
   describe 'GET /api/v1/doctors when no doctors exist' do
     before do
       Doctor.destroy_all
-      get '/api/v1/doctors'
+      get '/api/v1/doctors', headers: auth_headers(user)
     end
 
     it 'returns an empty array' do

@@ -17,7 +17,8 @@ RSpec.describe 'API::V1::Appointments', type: :request do
   describe 'GET /api/v1/appointments' do
     it 'returns a list of appointments' do
       create(:appointment)
-      get '/api/v1/appointments'
+      get '/api/v1/appointments', headers: auth_headers(user)
+
       expect(response).to have_http_status(:ok)
       expect(response.parsed_body.size).to be >= 1
     end
@@ -27,15 +28,21 @@ RSpec.describe 'API::V1::Appointments', type: :request do
     context 'with valid params' do
       it 'creates a new appointment' do
         expect do
-          post '/api/v1/appointments', params: { appointment: valid_attributes }
+          post '/api/v1/appointments',
+               params: { appointment: valid_attributes },
+               headers: auth_headers(user)
         end.to change(Appointment, :count).by(1)
+
         expect(response).to have_http_status(:created)
       end
     end
 
     context 'with invalid params' do
       it 'returns errors' do
-        post '/api/v1/appointments', params: { appointment: { description: '' } }
+        post '/api/v1/appointments',
+             params: { appointment: { description: '' } },
+             headers: auth_headers(user)
+
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -44,9 +51,12 @@ RSpec.describe 'API::V1::Appointments', type: :request do
   describe 'DELETE /api/v1/appointments/:id' do
     it 'deletes the appointment' do
       appointment = create(:appointment)
+
       expect do
-        delete "/api/v1/appointments/#{appointment.id}"
+        delete "/api/v1/appointments/#{appointment.id}",
+               headers: auth_headers(user)
       end.to change(Appointment, :count).by(-1)
+
       expect(response).to have_http_status(:no_content)
     end
   end
